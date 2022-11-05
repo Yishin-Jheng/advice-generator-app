@@ -1,0 +1,21 @@
+{
+  "name": "advice-generator-app",
+  "version": "1.0.0",
+  "description": "Random advice application",
+  "scripts": {
+    "start": "parcel index.html",
+    "built": "parcel build index.html"
+  },
+  "author": "Yishin",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "core-js": "^3.26.0",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.10"
+  }
+}
