@@ -26,27 +26,42 @@
     <script defer src="./src/js/script.js"></script>
 
     <title>Frontend Mentor | Advice generator app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
+
   <body>
     <div class="container">
       <div class="adviceId">
         <span class="adviceId__text">Advice</span>
-        #<span class="adviceId__id">117</span>
+        #<span class="adviceId__id">0</span>
+      </div>
+
+      <div class="loading">
+        <div class="loading__bubble loading__bubble-1">&nbsp;</div>
+        <div class="loading__bubble loading__bubble-2">&nbsp;</div>
+        <div class="loading__bubble loading__bubble-3">&nbsp;</div>
       </div>
 
       <div class="adviceContent">
-        ”
-        <span class="adviceContent__text">
-          It is easy to sit up and take notice, what's difficult is getting up
-          and taking action.
+        <span class="adviceContent__text"> Click button to get advice 😉 </span>
+        <span class="error__message">
+          ⚠️
+          <br />
+          Request took too long or something wrong with internet. Please try
+          again!
         </span>
-        ”
       </div>
 
       <div class="decorationLine">
-        <img src="./src/img/pattern-divider-desktop.svg" alt="divider icon" />
+        <picture>
+          <source
+            srcset="./src/img/pattern-divider-mobile.svg"
+            media="(max-width: 37.5em)"
+          />
+          <img
+            src="./src/img/pattern-divider-desktop.svg"
+            alt="divider image"
+          />
+        </picture>
       </div>
 
       <div class="btn">
@@ -61,10 +76,14 @@
     </div>
 
     <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Yi-Shin</a>.
+      <span
+        >Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+          Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/Yishin-Jheng" target="_blank">Yi-Shin</a
+        >.</span
+      >
     </div>
   </body>
 </html>

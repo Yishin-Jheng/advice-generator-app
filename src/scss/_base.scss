@@ -6,16 +6,27 @@ $color-grey-dark-1: #4e5d73;
 $color-grey-dark-2: #323a49;
 $color-grey-dark-3: #1f2632;
 
-//////////////////////////////
+$bg-medium: 37.5em; // 600px
+$bg-small: 26.25em; // 420px
 
-* {
-  margin: 0;
-  padding: 0;
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
 }
+
+//////////////////////////////
 
 *,
 *::after,
 *::before {
+  margin: 0;
+  padding: 0;
   box-sizing: inherit;
 }
 
@@ -51,23 +62,87 @@ body {
 
   background-color: $color-grey-dark-2;
   border-radius: 1.5rem;
+
+  @media only screen and (max-width: $bg-medium) {
+    // margin: 0 3rem;
+    width: calc(100% - 6rem);
+    padding: 4rem 2rem;
+  }
+
+  @media only screen and (max-width: $bg-small) {
+    width: calc(100% - 3rem);
+    padding: 4rem 1.5rem;
+  }
 }
+
+//////////////////////////////
 
 .adviceId {
   color: $color-green;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 1.8rem;
+
+  @media only screen and (max-width: $bg-medium) {
+    font-size: 1.5rem;
+  }
 }
 
 .adviceContent {
   color: $color-cyan;
   font-weight: 800;
   font-size: 3.2rem;
+
+  @media only screen and (max-width: $bg-medium) {
+    font-size: 2.8rem;
+  }
+
+  @media only screen and (max-width: $bg-small) {
+    font-size: 2.4rem;
+  }
 }
 
 .decorationLine {
   margin: 0 auto;
+}
+
+//////////////////////////////
+
+.error__message {
+  display: none;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  opacity: 0;
+
+  &__bubble {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $color-green;
+
+    &-1 {
+      animation: pulse 0.4s ease 0s infinite alternate;
+    }
+
+    &-2 {
+      animation: pulse 0.4s ease 0.2s infinite alternate;
+    }
+
+    &-3 {
+      animation: pulse 0.4s ease 0.4s infinite alternate;
+    }
+  }
 }
 
 .btn {
@@ -95,5 +170,41 @@ body {
   &__icon {
     width: 3rem;
     height: 3rem;
+
+    @media only screen and (max-width: $bg-small) {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+  }
+
+  @media only screen and (max-width: $bg-small) {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+//////////////////////////////
+
+.attribution {
+  color: $color-grey-dark-1;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+
+  a {
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &:link,
+    &:visited {
+      color: currentColor;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-green;
+      text-shadow: 0 0 0.5rem $color-green;
+    }
   }
 }
