@@ -1,8 +1,12 @@
 "use strict";
 
 const idContainer = document.querySelector(".adviceId__id");
-const adviceContainer = document.querySelector(".adviceContent__text");
+const adviceContainer = document.querySelector(".adviceContent");
+const adviceContent = document.querySelector(".adviceContent__text");
+const errorMessage = document.querySelector(".error__message");
 const button = document.querySelector(".btn");
+const loadingAnimation = document.querySelector(".loading");
+const timeOutSec = 5;
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -24,7 +28,7 @@ const newAdvice = async function () {
     // call data
     const res = await Promise.race([
       fetch("https://api.adviceslip.com/advice"),
-      timeout(10),
+      timeout(timeOutSec),
     ]);
     const data = await res.json();
 
@@ -43,10 +47,23 @@ const init = function () {
   button.addEventListener("click", async function (e) {
     try {
       const btn = e.target.closest(".btn");
+      if (!btn) return;
+
+      errorMessage.style.display = "none";
+      loadingAnimation.style.opacity = 1;
+      adviceContainer.style.opacity = 0;
+
       await newAdvice();
       idContainer.textContent = state.id;
-      adviceContainer.textContent = state.advice;
+      adviceContent.style.display = "block";
+      adviceContent.textContent = `” ${state.advice} ”`;
+      loadingAnimation.style.opacity = 0;
+      adviceContainer.style.opacity = 1;
     } catch (err) {
+      errorMessage.style.display = "block";
+      adviceContent.style.display = "none";
+      loadingAnimation.style.opacity = 0;
+      adviceContainer.style.opacity = 1;
       console.error(`${err} 💥💥💥`);
     }
   });
