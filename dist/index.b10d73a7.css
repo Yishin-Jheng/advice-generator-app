@@ -1,3 +1,10 @@
+.loading, .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes pulse {
   from {
     opacity: 1;
@@ -33,7 +40,7 @@ body {
 
 .container {
   max-width: 80rem;
-  height: 50%;
+  min-height: 50%;
   text-align: center;
   background-color: #323a49;
   border-radius: 1.5rem;
@@ -41,10 +48,6 @@ body {
   justify-content: space-around;
   padding: 4rem;
   display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -106,10 +109,6 @@ body {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .loading__bubble {
