@@ -1,5 +1,6 @@
 ////////////////////////////////////////////
-///  color, media, extend and animation  ///
+///  Color, media, extend and animation  ///
+////////////////////////////////////////////
 
 $color-cyan: #cee3e9;
 $color-green: #52ffa8;
@@ -30,7 +31,8 @@ $bg-small: 26.25em; // 420px
 }
 
 ////////////////////////////////////////////
-///      base setting and container      ///
+///      Base setting and container      ///
+////////////////////////////////////////////
 
 *,
 *::after,
@@ -84,6 +86,7 @@ body {
 
 ////////////////////////////////////////////
 ///     Advice area and divider line     ///
+////////////////////////////////////////////
 
 .adviceId {
   color: $color-green;
@@ -108,18 +111,19 @@ body {
   @media only screen and (max-width: $bg-small) {
     font-size: 2.4rem;
   }
+
+  &__error-message {
+    display: none;
+  }
 }
 
-.decorationLine {
+.decoration-line {
   margin: 0 auto;
 }
 
 ////////////////////////////////////////////
-/// animation, button, and error message ///
-
-.error__message {
-  display: none;
-}
+///     Loading animation and button     ///
+////////////////////////////////////////////
 
 .loading {
   @extend %absoluteCenter;
@@ -190,9 +194,10 @@ body {
 }
 
 ////////////////////////////////////////////
-///     Challenge by Frontend Mentor     ///
+///               Footer                 ///
+////////////////////////////////////////////
 
-.attribution {
+.footer {
   color: $color-grey-dark-1;
   text-align: center;
   font-weight: 400;
