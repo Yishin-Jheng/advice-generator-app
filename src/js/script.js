@@ -1,5 +1,5 @@
 "use strict";
-import "../scss/main.scss";
+import "../../index.css";
 
 const idContainer = document.querySelector(".adviceId__id");
 const adviceContainer = document.querySelector(".adviceContent");
