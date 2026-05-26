@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,9 +21,8 @@
       href="src/img/favicon-32x32.png"
     />
 
-    <!-- scss and js file -->
-    <link rel="stylesheet" href="./src/scss/main.scss" />
-    <script defer src="./src/js/script.js"></script>
+    <!-- js file -->
+    <script type="module" src="./src/js/script.js"></script>
 
     <title>Frontend Mentor | Advice generator app</title>
   </head>
@@ -51,6 +50,7 @@
         </span>
       </div>
 
+      <!-- NOTE: next底下的Image元件就是透過picture+source來實現的 -->
       <div class="decoration-line">
         <picture>
           <source
@@ -65,6 +65,7 @@
       </div>
 
       <div class="btn">
+        <!-- NOTE: 嚴格來說這個icon似乎不該用<figure>，因為<figure>主要還是要跟<figcaption>搭配居多 -->
         <figure>
           <img
             class="btn__icon"

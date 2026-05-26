@@ -1,12 +1,13 @@
 "use strict";
+import "../scss/main.scss";
 
 const idContainer = document.querySelector(".adviceId__id");
 const adviceContainer = document.querySelector(".adviceContent");
 const adviceContent = document.querySelector(".adviceContent__text");
-const errorMessage = document.querySelector(".error__message");
+const errorMessage = document.querySelector(".adviceContent__error-message");
 const button = document.querySelector(".btn");
 const loadingAnimation = document.querySelector(".loading");
-const timeOutSec = 5;
+const timeOutSec = 10;
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -60,11 +61,11 @@ const init = function () {
       loadingAnimation.style.opacity = 0;
       adviceContainer.style.opacity = 1;
     } catch (err) {
+      console.error(`${err} 💥💥💥`);
       errorMessage.style.display = "block";
       adviceContent.style.display = "none";
       loadingAnimation.style.opacity = 0;
       adviceContainer.style.opacity = 1;
-      console.error(`${err} 💥💥💥`);
     }
   });
 };
