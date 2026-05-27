@@ -22,60 +22,13 @@
     />
 
     <!-- js file -->
-    <script type="module" src="./src/js/script.js"></script>
+    <script type="module" src="./src/main.jsx"></script>
 
     <title>Frontend Mentor | Advice generator app</title>
   </head>
 
   <body>
-    <main class="container">
-      <div class="adviceId">
-        <span class="adviceId__text">Advice</span>
-        #<span class="adviceId__id">0</span>
-      </div>
-
-      <div class="loading">
-        <div class="loading__bubble loading__bubble-1">&nbsp;</div>
-        <div class="loading__bubble loading__bubble-2">&nbsp;</div>
-        <div class="loading__bubble loading__bubble-3">&nbsp;</div>
-      </div>
-
-      <div class="adviceContent">
-        <span class="adviceContent__text"> Click button to get advice 😉 </span>
-        <span class="adviceContent__error-message">
-          ⚠️
-          <br />
-          Request took too long or something wrong with internet. Please try
-          again!
-        </span>
-      </div>
-
-      <!-- NOTE: next底下的Image元件就是透過picture+source來實現的 -->
-      <div class="decoration-line">
-        <picture>
-          <source
-            srcset="./src/img/pattern-divider-mobile.svg"
-            media="(max-width: 37.5em)"
-          />
-          <img
-            src="./src/img/pattern-divider-desktop.svg"
-            alt="divider image"
-          />
-        </picture>
-      </div>
-
-      <div class="btn">
-        <!-- NOTE: 嚴格來說這個icon似乎不該用<figure>，因為<figure>主要還是要跟<figcaption>搭配居多 -->
-        <figure>
-          <img
-            class="btn__icon"
-            src="./src/img/icon-dice.svg"
-            alt="dice icon"
-          />
-        </figure>
-      </div>
-    </main>
-
+    <div id="root"></div>
     <footer class="footer">
       <span
         >Challenge by

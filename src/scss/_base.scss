@@ -61,6 +61,7 @@ body {
   @extend %absoluteCenter;
 
   max-width: 80rem;
+  // 這邊的高度條件需要再調整
   min-height: 50%;
   padding: 4rem;
   text-align: center;
@@ -111,10 +112,6 @@ body {
   @media only screen and (max-width: $bg-small) {
     font-size: 2.4rem;
   }
-
-  &__error-message {
-    display: none;
-  }
 }
 
 .decoration-line {
@@ -132,8 +129,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  opacity: 0;
 
   &__bubble {
     width: 2rem;
