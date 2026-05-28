@@ -15,12 +15,12 @@ function useAdvice() {
     advice: "Click button to get advice 😉",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const fetchAdvice = async function () {
     try {
       setIsLoading(true);
-      setErrorMessage("");
+      setIsError(false);
       const res = await Promise.race([
         fetch("https://api.adviceslip.com/advice"),
         timeout(TIMEOUT_SEC),
@@ -33,15 +33,15 @@ function useAdvice() {
       const { slip } = data;
       setAdviceContent(slip);
     } catch (err) {
-      console.error(`${err} 💥`);
-      setErrorMessage(err);
+      setIsLoading(false);
+      setIsError(true);
     }
   };
 
   return {
     adviceContent,
     isLoading,
-    errorMessage,
+    isError,
     fetchAdvice,
   };
 }

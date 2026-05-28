@@ -1,12 +1,10 @@
-import { useState } from "react";
 import useAdvice from "./hooks/useAdvice";
 import dividerDesktop from "./img/pattern-divider-desktop.svg";
 import dividerMobile from "./img/pattern-divider-mobile.svg";
 import buttonImg from "./img/icon-dice.svg";
 
 function App() {
-  const { fetchAdvice, isLoading, errorMessage, adviceContent } = useAdvice();
-  const isError = !!errorMessage;
+  const { fetchAdvice, isLoading, isError, adviceContent } = useAdvice();
 
   return (
     <main className="container">
@@ -14,7 +12,6 @@ function App() {
         <span className="adviceId__text">Advice</span>#
         <span className="adviceId__id">{adviceContent.id}</span>
       </div>
-
       {isLoading && (
         <div className="loading">
           <div className="loading__bubble loading__bubble-1">&nbsp;</div>
@@ -22,13 +19,10 @@ function App() {
           <div className="loading__bubble loading__bubble-3">&nbsp;</div>
         </div>
       )}
-
       {!isLoading && (
         <div className="adviceContent">
           {!isError && (
-            <span className="adviceContent__text">
-              {adviceContent.advice && adviceContent.advice}
-            </span>
+            <span className="adviceContent__text">{adviceContent.advice}</span>
           )}
           {isError && (
             <span className="adviceContent__error-message">
@@ -40,14 +34,12 @@ function App() {
           )}
         </div>
       )}
-
-      <div className="decoration-line">
+      <div className="decorationLine">
         <picture>
-          <source srcset={dividerMobile} media="(max-width: 37.5em)" />
+          <source srcSet={dividerMobile} media="(max-width: 37.5em)" />
           <img src={dividerDesktop} alt="divider image" />
         </picture>
       </div>
-
       <button className="btn" onClick={fetchAdvice}>
         <img className="btn__icon" src={buttonImg} alt="dice icon" />
       </button>
