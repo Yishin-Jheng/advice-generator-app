@@ -1,7 +1,4 @@
-////////////////////////////////////////////
-///  Color, media, extend and animation  ///
-////////////////////////////////////////////
-
+// Color, media, extend and animation
 $color-cyan: #cee3e9;
 $color-green: #52ffa8;
 
@@ -11,13 +8,6 @@ $color-grey-dark-3: #1f2632;
 
 $bg-medium: 37.5em; // 600px
 $bg-small: 26.25em; // 420px
-
-%absoluteCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 @keyframes pulse {
   from {
@@ -30,51 +20,27 @@ $bg-small: 26.25em; // 420px
   }
 }
 
-////////////////////////////////////////////
-///      Base setting and container      ///
-////////////////////////////////////////////
-
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
+// Base setting and container
 html {
-  box-sizing: border-box;
   font-size: 62.5%;
 }
 
-body {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  font-weight: 400;
-  line-height: 1.6;
-  font-family: "Manrope", sans-serif;
-  background-color: $color-grey-dark-3;
-}
-
 .container {
-  @extend %absoluteCenter;
-
+  position: relative;
   max-width: 80rem;
-  // 這邊的高度條件需要再調整
-  min-height: 50%;
+  min-height: 40rem;
   padding: 4rem;
-  text-align: center;
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 
+  text-align: center;
   background-color: $color-grey-dark-2;
-  border-radius: 1.5rem;
+  border-radius: 15px;
 
   @media only screen and (max-width: $bg-medium) {
-    // margin: 0 3rem;
     width: calc(100% - 6rem);
     padding: 4rem 2rem;
   }
@@ -85,10 +51,7 @@ body {
   }
 }
 
-////////////////////////////////////////////
-///     Advice area and divider line     ///
-////////////////////////////////////////////
-
+// Advice area and divider line
 .adviceId {
   color: $color-green;
   text-transform: uppercase;
@@ -114,21 +77,15 @@ body {
   }
 }
 
-.decoration-line {
-  margin: 0 auto;
+.decorationLine {
+  margin: 0 auto 2.5rem auto;
 }
 
-////////////////////////////////////////////
-///     Loading animation and button     ///
-////////////////////////////////////////////
-
+// Loading animation and button
 .loading {
-  @extend %absoluteCenter;
-
-  width: 10rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 2rem;
+  justify-content: center;
 
   &__bubble {
     width: 2rem;
@@ -160,10 +117,6 @@ body {
   height: 8rem;
   border-radius: 50%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   background-color: $color-green;
   cursor: pointer;
   transition: all 0.3s;
@@ -175,6 +128,7 @@ body {
   &__icon {
     width: 3rem;
     height: 3rem;
+    margin: 0 auto;
 
     @media only screen and (max-width: $bg-small) {
       width: 2.6rem;
@@ -185,33 +139,5 @@ body {
   @media only screen and (max-width: $bg-small) {
     width: 7rem;
     height: 7rem;
-  }
-}
-
-////////////////////////////////////////////
-///               Footer                 ///
-////////////////////////////////////////////
-
-.footer {
-  color: $color-grey-dark-1;
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.2rem;
-  padding-top: 0.5rem;
-
-  a {
-    text-decoration: none;
-    transition: all 0.2s;
-
-    &:link,
-    &:visited {
-      color: currentColor;
-    }
-
-    &:hover,
-    &:active {
-      color: $color-green;
-      text-shadow: 0 0 0.5rem $color-green;
-    }
   }
 }
