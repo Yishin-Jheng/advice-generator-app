@@ -8,6 +8,7 @@ const loadingAnimationClass =
 
 function App() {
   const { fetchAdvice, isLoading, isError, adviceContent } = useAdvice();
+  const isPlaceholder = adviceContent.id === 0;
 
   return (
     <main className="relative max-w-200 min-h-100 p-10 mx-auto my-0 flex flex-col justify-between text-center bg-grey-dark-2 rounded-2xl max-md:w-[calc(100%-60px)] max-md:px-5 max-sm:w-[calc(100%-30px)] max-sm:px-3.75">
@@ -30,7 +31,13 @@ function App() {
       )}
       {!isLoading && (
         <div className="text-cyan font-extrabold text-[32px] max-md:text-[28px] max-sm:text-[24px]">
-          {!isError && <span>{adviceContent.advice}</span>}
+          {!isError && (
+            <span>
+              {isPlaceholder
+                ? adviceContent.advice
+                : `” ${adviceContent.advice} ”`}
+            </span>
+          )}
           {isError && (
             <span>
               ⚠️
