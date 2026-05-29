@@ -39,9 +39,11 @@ Users should be able to:
 
 - Desktop-first workflow
 - Semantic HTML5 markup
-- JavaScript ES6+
-- SCSS - CSS preprocessor
-- Parcel - build tool for the web
+- React - JS library
+- Tailwind CSS - utility-first CSS framework
+- Vite - build tool for the web
+- <s>SCSS - CSS preprocessor</s> **Deprecated**
+- <s>Parcel - build tool for the web</s> **Deprecated**
 
 ### What I learned
 
