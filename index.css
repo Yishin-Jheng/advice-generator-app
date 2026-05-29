@@ -9,6 +9,9 @@
   --color-grey-dark-3: #1f2632;
 
   --text-shadow-green-glow: 0 0 5px var(--color-green);
+  --shadow-green-glow: 0 0 30px
+    color-mix(in srgb, var(--color-green) 80%, transparent);
+  --animate-pulse-bubble: pulse-bubble 0.4s ease infinite alternate;
 
   --breakpoint-md: 37.5em; /* 600px */
   --breakpoint-sm: 26.25em; /* 420px */
