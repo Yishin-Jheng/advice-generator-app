@@ -1,7 +1,19 @@
 import { useState } from "react";
 
+export interface AdviceSlip {
+  id: number;
+  advice: string;
+}
+interface AdviceResponse {
+  slip: AdviceSlip;
+}
+interface ErrorResponse {
+  message: string;
+}
+
 const TIMEOUT_SEC = 10;
-const timeout = function (sec) {
+
+const timeout = function (sec: number): Promise<never> {
   return new Promise(function (_, reject) {
     setTimeout(function () {
       reject(new Error(`Request took too long! Timeout after ${sec} second`));
@@ -10,7 +22,7 @@ const timeout = function (sec) {
 };
 
 function useAdvice() {
-  const [adviceContent, setAdviceContent] = useState({
+  const [adviceContent, setAdviceContent] = useState<AdviceSlip>({
     id: 0,
     advice: "Click button to get advice 😉",
   });
@@ -25,16 +37,16 @@ function useAdvice() {
         fetch("https://api.adviceslip.com/advice"),
         timeout(TIMEOUT_SEC),
       ]);
-      const data = await res.json();
-      setIsLoading(false);
+      const data = (await res.json()) as AdviceResponse | ErrorResponse;
 
-      if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+      if (!res.ok)
+        throw new Error(`${(data as ErrorResponse).message} (${res.status})`);
 
-      const { slip } = data;
-      setAdviceContent(slip);
+      setAdviceContent((data as AdviceResponse).slip);
     } catch (err) {
-      setIsLoading(false);
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
